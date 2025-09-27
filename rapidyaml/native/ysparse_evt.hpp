@@ -93,10 +93,10 @@ RYML_EXPORT bool ysparse_parse(ysparse *ryml2evt,
                                int *evt, size_type evt_size);
 
 /** Get the required size for the event buffer, from the last parse call */
-RYML_EXPORT int ysparse_parse_reqsize_evt(ysparse *ryml2evt);
+RYML_EXPORT int ysparse_reqsize_evt(ysparse *ryml2evt);
 
 /** Get the required size for the arena buffer, from the last parse call */
-RYML_EXPORT int ysparse_parse_reqsize_arena(ysparse *ryml2evt);
+RYML_EXPORT int ysparse_reqsize_arena(ysparse *ryml2evt);
 
 #if defined(__cplusplus)
 }

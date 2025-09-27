@@ -59,12 +59,12 @@ RYML_EXPORT bool ysparse_parse(ysparse *obj,
     return obj->m_handler.fits_buffers();
 }
 
-RYML_EXPORT int ysparse_parse_reqsize_evt(ysparse *obj)
+RYML_EXPORT int ysparse_reqsize_evt(ysparse *obj)
 {
     return obj->m_handler.required_size_events();
 }
 
-RYML_EXPORT int ysparse_parse_reqsize_arena(ysparse *obj)
+RYML_EXPORT int ysparse_reqsize_arena(ysparse *obj)
 {
     return (int)obj->m_handler.required_size_arena();
 }

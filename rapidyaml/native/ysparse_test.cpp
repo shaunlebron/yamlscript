@@ -143,7 +143,7 @@ public:
                                           arena.str, (size_type)arena.len,
                                           &output[0], (size_type)output.size());
         CHECK(fits_buffers);
-        int reqsize_evt = ysparse_parse_reqsize_evt(ryml2evt);
+        int reqsize_evt = ysparse_reqsize_evt(ryml2evt);
         CHECK_MSG((size_t)reqsize_evt == expected_size(evt), "%d vs %zu", reqsize_evt, expected_size(evt));
         CHECK(reqsize_evt != 0);
         CHECK(reqsize_evt <= estimated_size);
@@ -173,8 +173,8 @@ public:
                                           arena.str, (size_type)arena.len,
                                           output.data(), (size_type)output.size());
         CHECK(!fits_buffers);
-        int reqsize_evt = ysparse_parse_reqsize_evt(ryml2evt);
-        int reqsize_arena = ysparse_parse_reqsize_arena(ryml2evt);
+        int reqsize_evt = ysparse_reqsize_evt(ryml2evt);
+        int reqsize_arena = ysparse_reqsize_arena(ryml2evt);
         CHECK(reqsize_evt == expected_size(evt));
         CHECK(reqsize_evt != 0);
         CHECK(reqsize_evt <= estimated_size);
@@ -188,8 +188,8 @@ public:
                                            arena.str, (size_type)arena.len,
                                            output.data(), (size_type)output.size());
         CHECK(fits_buffers2);
-        int reqsize_evt2 = ysparse_parse_reqsize_evt(ryml2evt);
-        int reqsize_arena2 = ysparse_parse_reqsize_arena(ryml2evt);
+        int reqsize_evt2 = ysparse_reqsize_evt(ryml2evt);
+        int reqsize_arena2 = ysparse_reqsize_arena(ryml2evt);
         CHECK(reqsize_evt2 == reqsize_evt);
         CHECK(reqsize_arena2 == reqsize_arena);
         output.resize(reqsize_evt2);
@@ -214,8 +214,8 @@ public:
                                           nullptr, 0,
                                           nullptr, 0);
         CHECK(!fits_buffers);
-        int reqsize_evt = ysparse_parse_reqsize_evt(ryml2evt);
-        int reqsize_arena = ysparse_parse_reqsize_arena(ryml2evt);
+        int reqsize_evt = ysparse_reqsize_evt(ryml2evt);
+        int reqsize_arena = ysparse_reqsize_arena(ryml2evt);
         CHECK(reqsize_evt == expected_size(evt));
         CHECK(reqsize_evt <= estimated_size);
         CHECK(reqsize_evt != 0);
@@ -231,8 +231,8 @@ public:
                                            arena.str, (size_type)arena.len,
                                            output.data(), (size_type)output.size());
         CHECK(fits_buffers2);
-        int reqsize_evt2 = ysparse_parse_reqsize_evt(ryml2evt);
-        int reqsize_arena2 = ysparse_parse_reqsize_arena(ryml2evt);
+        int reqsize_evt2 = ysparse_reqsize_evt(ryml2evt);
+        int reqsize_arena2 = ysparse_reqsize_arena(ryml2evt);
         CHECK(reqsize_evt2 == reqsize_evt);
         CHECK(reqsize_arena2 == reqsize_arena);
         CHECK(reqsize_evt2 == output.size());
